@@ -19,7 +19,7 @@ class LumimemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MemoryBridge',
+      title: 'Lumimemo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark,
       home: const LoginScreen(),

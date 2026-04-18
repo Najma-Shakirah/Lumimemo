@@ -41,49 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD5pWvdLmr14bS0jKKpLcDRaL6GCAPe_4E',
-    appId: '1:898742549007:web:214d5985ca9827685f817a',
-    messagingSenderId: '898742549007',
-    projectId: 'lumimemohack',
-    authDomain: 'lumimemohack.firebaseapp.com',
-    storageBucket: 'lumimemohack.firebasestorage.app',
-    measurementId: 'G-LVVSPFH0Z9',
+    apiKey: 'AIzaSyDwgwmKoP4Mk5J2kb90YzOwaR5ZBvnUROQ',
+    appId: '1:995882911909:web:c1a34de1f10def45ffa54c',
+    messagingSenderId: '995882911909',
+    projectId: 'lumimemo-ai',
+    authDomain: 'lumimemo-ai.firebaseapp.com',
+    storageBucket: 'lumimemo-ai.firebasestorage.app',
+    measurementId: 'G-93256L4MMJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBaAPseKj_38_mueAZAlGkn5oUau6zTIcs',
-    appId: '1:898742549007:android:d75a4430b4f81bc75f817a',
-    messagingSenderId: '898742549007',
-    projectId: 'lumimemohack',
-    storageBucket: 'lumimemohack.firebasestorage.app',
+    apiKey: 'AIzaSyBzj0mmWDUhCXFPZpYyCaFFu4XBa88NgbY',
+    appId: '1:995882911909:android:381f927d3c062dd9ffa54c',
+    messagingSenderId: '995882911909',
+    projectId: 'lumimemo-ai',
+    storageBucket: 'lumimemo-ai.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDPNyZxkooa2Jk1PHN3c_IAXNv4Xmt-fTY',
-    appId: '1:898742549007:ios:cb3657265931f8b65f817a',
-    messagingSenderId: '898742549007',
-    projectId: 'lumimemohack',
-    storageBucket: 'lumimemohack.firebasestorage.app',
+    apiKey: 'AIzaSyDkOy0ArdBhRgRbniQwqZ7o6Ba3wkC0JHU',
+    appId: '1:995882911909:ios:ceb0312ef88114f4ffa54c',
+    messagingSenderId: '995882911909',
+    projectId: 'lumimemo-ai',
+    storageBucket: 'lumimemo-ai.firebasestorage.app',
     iosBundleId: 'com.example.lumimemohackathon',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDPNyZxkooa2Jk1PHN3c_IAXNv4Xmt-fTY',
-    appId: '1:898742549007:ios:cb3657265931f8b65f817a',
-    messagingSenderId: '898742549007',
-    projectId: 'lumimemohack',
-    storageBucket: 'lumimemohack.firebasestorage.app',
+    apiKey: 'AIzaSyDkOy0ArdBhRgRbniQwqZ7o6Ba3wkC0JHU',
+    appId: '1:995882911909:ios:ceb0312ef88114f4ffa54c',
+    messagingSenderId: '995882911909',
+    projectId: 'lumimemo-ai',
+    storageBucket: 'lumimemo-ai.firebasestorage.app',
     iosBundleId: 'com.example.lumimemohackathon',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyD5pWvdLmr14bS0jKKpLcDRaL6GCAPe_4E',
-    appId: '1:898742549007:web:5d9d365fe3565ddf5f817a',
-    messagingSenderId: '898742549007',
-    projectId: 'lumimemohack',
-    authDomain: 'lumimemohack.firebaseapp.com',
-    storageBucket: 'lumimemohack.firebasestorage.app',
-    measurementId: 'G-P8LN8HYX3C',
+    apiKey: 'AIzaSyDwgwmKoP4Mk5J2kb90YzOwaR5ZBvnUROQ',
+    appId: '1:995882911909:web:ce388f6395839c8affa54c',
+    messagingSenderId: '995882911909',
+    projectId: 'lumimemo-ai',
+    authDomain: 'lumimemo-ai.firebaseapp.com',
+    storageBucket: 'lumimemo-ai.firebasestorage.app',
+    measurementId: 'G-WCNYKJNR8S',
   );
 
 }
