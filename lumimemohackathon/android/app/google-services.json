@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "378957020139",
+    "project_id": "lumimemoaihack",
+    "storage_bucket": "lumimemoaihack.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378957020139:android:4af5b2438f8ed047d6f7ae",
+        "android_client_info": {
+          "package_name": "com.example.lumimemohackathon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv5z0HkwMeq5J8eqxnvZoGD3-iIwKPNtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
