@@ -12,7 +12,20 @@
           "package_name": "com.example.lumimemohackathon"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "995882911909-v1u854opcb50nd8j6hlnma7cb1idinoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lumimemohackathon",
+            "certificate_hash": "a3b07d5d1dde508fef4e1e1194d37c31fae3e87e"
+          }
+        },
+        {
+          "client_id": "995882911909-ahj7epo56ivs5hrfjnm632p7jakgkrl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBzj0mmWDUhCXFPZpYyCaFFu4XBa88NgbY"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995882911909-ahj7epo56ivs5hrfjnm632p7jakgkrl0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "995882911909-bosn7ku2a0ue5fcnh201msjj7fjbdvcv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lumimemohackathon"
+              }
+            }
+          ]
         }
       }
     }
