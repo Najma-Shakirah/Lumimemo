@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // Color Palette — warm amber & deep slate
-  static const Color primary = Color.fromARGB(255, 159, 24, 231);       // warm amber
+  static const Color primary = Color.fromARGB(255, 56, 0, 86);       // warm amber
   static const Color primaryDark = Color.fromARGB(255, 209, 140, 242);
-  static const Color background = Color(0xFF0F1117);    // deep navy-black
+  static const Color background = Color.fromARGB(255, 229, 158, 255);    // deep navy-black
   static const Color surface = Color(0xFF1A1D27);       // card surface
   static const Color surfaceAlt = Color(0xFF242736);    // elevated surface
   static const Color textPrimary = Color(0xFFF5F0E8);   // warm white
