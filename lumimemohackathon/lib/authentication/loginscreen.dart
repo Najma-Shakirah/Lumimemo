@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../services/auth_service.dart';
 import '../apptheme.dart';
 import 'signupscreen.dart';
-import 'dashboardscreen.dart';
+import '../dashboard/dashboardscreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

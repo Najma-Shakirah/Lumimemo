@@ -1,8 +1,9 @@
+/*
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../apptheme.dart';
@@ -513,17 +514,7 @@ class _MemoryFormSheetState extends State<_MemoryFormSheet> {
       ),
     );
   }
-
-  Future<String?> _uploadPhoto() async {
-    if (_imageFile == null) return _existingPhotoUrl;
-    final uid = FirebaseAuth.instance.currentUser!.uid;
-    final ref = FirebaseStorage.instance
-        .ref()
-        .child('memory_photos/$uid/${DateTime.now().millisecondsSinceEpoch}.jpg');
-    await ref.putFile(_imageFile!);
-    return await ref.getDownloadURL();
-  }
-
+  
   Future<void> _save() async {
     if (_titleCtrl.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -779,3 +770,4 @@ class _MemoryFormSheetState extends State<_MemoryFormSheet> {
         ),
       );
 }
+*/
