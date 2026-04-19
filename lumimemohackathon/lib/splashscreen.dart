@@ -53,12 +53,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     if (user != null) {
        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const DashboardScreen()),
+          MaterialPageRoute(builder: (_) => const LoginScreen()),
         );
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const LoginScreen()),
+        MaterialPageRoute(builder: (_) => const DashboardScreen()),
       );
     }
   }
@@ -130,7 +130,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         ),
                         padding: const EdgeInsets.all(20),
                         child: Image.asset(
-                          'assets/images/logo.png',// Replace with your logo path
+                          'images/logo.png',// Replace with your logo path
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -141,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     
                     // Tagline
                     Text(
-                      'Flood Monitoring System',
+                      'Lumimemo',
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                         fontSize: 16,
