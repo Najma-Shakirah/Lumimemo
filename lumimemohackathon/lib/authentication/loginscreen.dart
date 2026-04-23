@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../services/auth_service.dart';
 import '../apptheme.dart';
 import 'signupscreen.dart';
-import 'dashboardscreen.dart';
+import '../dashboard/dashboardscreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -119,13 +119,15 @@ class _LoginScreenState extends State<LoginScreen>
                           width: 1,
                         ),
                       ),
-                      child: const Icon(
-                        Icons.bolt_rounded,
-                        color: AppTheme.primary,
-                        size: 32,
+                    child: Center(
+                      child: Image.asset(
+                        'images/logo.png',
+                        width: 50,
+                        height: 50,
                       ),
                     ),
-
+                      ),
+                    
                     const SizedBox(height: 32),
 
                     // Title
@@ -211,7 +213,7 @@ class _LoginScreenState extends State<LoginScreen>
                         child: Text(
                           'Forgot password?',
                           style: GoogleFonts.dmSans(
-                              fontSize: 13, color: AppTheme.primaryDark),
+                              fontSize: 13, color: const Color.fromARGB(255, 247, 106, 218)),
                         ),
                       ),
                     ),
@@ -278,7 +280,7 @@ class _LoginScreenState extends State<LoginScreen>
                             child: Text(
                               'Sign Up',
                               style: GoogleFonts.dmSans(
-                                color: AppTheme.primary,
+                                color: const Color.fromARGB(255, 255, 143, 216),
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
                               ),

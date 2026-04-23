@@ -23,7 +23,7 @@ class MemoryBridgeLogo extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          'MemoryBridge',
+          'Lumimemo',
           style: GoogleFonts.dmSerifDisplay(
             color: AppTheme.textPrimary,
             fontSize: 26,

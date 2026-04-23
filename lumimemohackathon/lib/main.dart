@@ -3,8 +3,9 @@ import 'apptheme.dart';
 import 'authentication/loginscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import'authentication/dashboardscreen.dart';
+import'dashboard/dashboardscreen.dart';
 import 'firebase_options.dart';
+import 'splashscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class LumimemoApp extends StatelessWidget {
       title: 'Lumimemo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark,
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }
