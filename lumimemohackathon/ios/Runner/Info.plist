@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need microphone access to let you talk to your AI companion.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access may be used for avatar interaction features.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>We need Bluetooth access to support wireless headsets during your conversation.</string>
 </dict>
 </plist>

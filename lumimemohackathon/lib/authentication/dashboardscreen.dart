@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../apptheme.dart';
 import 'loginscreen.dart';
+import '../avatar/avatar_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -248,12 +249,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
       // ── FAB ───────────────────────────────────────────────────────────────
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppTheme.primary,
-        foregroundColor: AppTheme.background,
-        elevation: 0,
-        child: const Icon(Icons.add_rounded, size: 28),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => AvatarScreen(
+          patientName: _displayName,
+        ),
       ),
+    );
+  },
+  backgroundColor: AppTheme.primary,
+  foregroundColor: AppTheme.background,
+  elevation: 0,
+  child: const Icon(Icons.add_rounded, size: 28),
+),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

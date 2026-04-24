@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Lumimemo Avatar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0F0E17; width: 100vw; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    #convai-container { width: 100%; height: 100%; position: relative; }
+    convai-avatar { width: 100%; height: 100%; --convai-primary-color: #E8A838; --convai-background-color: #0F0E17; }
+    convai-avatar::part(controls), convai-avatar::part(watermark) { display: none; }
+    
+    #loader { position: absolute; inset: 0; background: #0F0E17; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; z-index: 10; transition: opacity 0.5s ease; }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .spinner { width: 32px; height: 32px; border: 2px solid rgba(232, 168, 56, 0.2); border-top-color: #E8A838; border-radius: 50%; animation: spin 0.9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<div id="loader"><div class="spinner"></div></div>
+<div id="convai-container"><convai-avatar id="avatar"></convai-avatar></div>
+
+<script>
+  let avatarEl = null;
+  let isReady = false;
+  console.log('Lumimemo Avatar HTML: Loaded and waiting for init...');
+
+  window.addEventListener('message', (event) => {
+    let data = event.data;
+    if (typeof data === 'string') {
+      try { data = JSON.parse(data); } catch (e) { return; }
+    }
+    if (!data || !data.type) return;
+    switch (data.type) {
+      case 'init': initConvai(data.apiKey, data.characterId, data.patientName, data.greeting); break;
+      case 'speak': triggerSpeak(data.text); break;
+      case 'idle': triggerIdle(); break;
+      case 'start_listening': startListening(); break;
+      case 'stop_listening': stopListening(); break;
+    }
+  });
+
+  async function initConvai(apiKey, characterId, patientName, customGreeting) {
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://Conv-AI.github.io/web-sdk-cdn/convai-client.js';
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      customElements.whenDefined('convai-avatar').then(() => {
+        avatarEl = document.getElementById('avatar');
+        avatarEl.setAttribute('api-key', apiKey);
+        avatarEl.setAttribute('character-id', characterId);
+        avatarEl.setAttribute('enable-audio', 'true');
+        avatarEl.setAttribute('enable-lipsync', 'true');
+        
+        const greeting = customGreeting || `Hello ${patientName}, I am your companion.`;
+        avatarEl.setAttribute('greeting', greeting);
+
+        avatarEl.addEventListener('convai-ready', () => {
+          isReady = true;
+          document.getElementById('loader').classList.add('hidden');
+          notifyFlutter({ type: 'ready' });
+        });
+
+        avatarEl.addEventListener('convai-speak-start', () => notifyFlutter({ type: 'speaking' }));
+        avatarEl.addEventListener('convai-speak-end', () => notifyFlutter({ type: 'idle' }));
+        
+        avatarEl.addEventListener('convai-user-speech', (e) => {
+          notifyFlutter({ type: 'user_speech', transcript: e.detail?.transcript || '' });
+        });
+
+        avatarEl.addEventListener('convai-error', (e) => {
+          notifyFlutter({ type: 'error', message: e.detail?.message || 'SDK Error' });
+        });
+      });
+    };
+  }
+
+  function triggerSpeak(text) {
+    if (avatarEl && isReady && typeof avatarEl.sendText === 'function') avatarEl.sendText(text);
+  }
+
+  function triggerIdle() {
+    if (avatarEl && typeof avatarEl.interrupt === 'function') avatarEl.interrupt();
+  }
+
+  function startListening() {
+    if (avatarEl && isReady) {
+      // The convai-avatar component handles microphone via startSession/stopSession 
+      // or similar methods. If using the custom element, it usually responds to 
+      // attribute changes or internal method calls.
+      // Most ConvAI components use 'onToggleMicrophone' or similar.
+      // We will attempt to trigger the internal click/start if possible.
+      if (typeof avatarEl.startAudio === 'function') {
+        avatarEl.startAudio();
+      } else {
+        // Fallback: try to find the internal mic button and click it if it exists
+        const micBtn = avatarEl.shadowRoot?.querySelector('[part="mic-button"]');
+        if (micBtn) micBtn.click();
+      }
+    }
+  }
+
+  function stopListening() {
+    if (avatarEl && isReady) {
+      if (typeof avatarEl.stopAudio === 'function') {
+        avatarEl.stopAudio();
+      } else {
+        const micBtn = avatarEl.shadowRoot?.querySelector('[part="mic-button"]');
+        if (micBtn) micBtn.click();
+      }
+    }
+  }
+
+  function notifyFlutter(payload) {
+    const jsonStr = JSON.stringify(payload);
+    if (window.FlutterBridge) {
+      FlutterBridge.postMessage(jsonStr);
+    } else if (window.parent !== window) {
+      // Fallback for Web iframe
+      window.parent.postMessage(jsonStr, '*');
+    }
+  }
+</script>
+</body>
+</html>
